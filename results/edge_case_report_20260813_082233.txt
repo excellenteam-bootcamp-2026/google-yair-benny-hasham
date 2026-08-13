@@ -1,0 +1,155 @@
+Auto-Complete Edge Case Report
+Run: 2026-08-13 08:22:33
+Corpus: 2391950 sentences
+
+1. [empty_query] ""
+   Time: 0.14 ms
+   No suggestions found
+
+2. [whitespace_only] "   "
+   Time: 0.01 ms
+   No suggestions found
+
+3. [single_char] "a"
+   Time: 14201.93 ms
+   Here are 5 suggestions
+   1.  (deny)ed (w)rite access over the (normal) attributes. (sg244986.txt 15976)
+   2.  (grant)ed (r)ead, (s)earch and (c)ompare access over the (normal) attributes. (sg244986.txt 15975)
+   3.  -A (sg244986.txt 11210)
+   4.  -D adminDN (sg244986.txt 9285)
+   5.  -N certificatename: Specify the label associated with the client certificate in (sg244986.txt 24508)
+
+4. [single_exact_word] "the"
+   Time: 7433.46 ms
+   Here are 5 suggestions
+   1.  (deny)ed (w)rite access over the (normal) attributes. (sg244986.txt 15976)
+   2.  (grant)ed (r)ead, (s)earch and (c)ompare access over the (normal) attributes. (sg244986.txt 15975)
+   3.  -?: Displays the help screen. (sg244986.txt 24539)
+   4.  -C countnumber - Counts the number of entries to fix. If more than the (sg244986.txt 15567)
+   5.  -F - This is the fix option. If specified, content on the consumer replica is (sg244986.txt 15569)
+
+5. [multiword_exact_phrase] "to be"
+   Time: 1495.25 ms
+   Here are 5 suggestions
+   1.  All directories to be used for the DB2 database must be completely empty. (sg244986.txt 21184)
+   2.  Authentication: Ensures that the user is who he/she claims to be. It is (sg244986.txt 17313)
+   3.  Context.SECURITY_PRINCIPAL - This constant defines the DN to be used (sg244986.txt 25835)
+   4.  Context.SECURITY_PRINCIPAL - This constant defines the DN to be used (sg244986.txt 25627)
+   5.  Extended operation option that identifies the extended operation to be (sg244986.txt 10308)
+
+6. [one_substitution_typo] "to pe"
+   Time: 1428.42 ms
+   Here are 5 suggestions
+   1.  When Allocated: As needed to perform sorts (sg244986.txt 20003)
+   2. 
+   115.5. WELCOME TO PERL/IX (perl-all-en-5.8.5.txt 93208)
+   3. 
+   Example 21. Using init script to perform extra configuration before projects are evaluated (userguide.txt 5114)
+   4. 
+   Note: If the LDAP server is configured to perform server authentication (sg244986.txt 11273)
+   5. 
+   configured to perform client and server Authentication, a client certificate (sg244986.txt 15763)
+
+7. [one_missing_char_indel] "th"
+   Time: 10401.84 ms
+   Here are 5 suggestions
+   1.  (deny)ed (w)rite access over the (normal) attributes. (sg244986.txt 15976)
+   2.  (grant)ed (r)ead, (s)earch and (c)ompare access over the (normal) attributes. (sg244986.txt 15975)
+   3.  -?: Displays the help screen. (sg244986.txt 24539)
+   4.  -C countnumber - Counts the number of entries to fix. If more than the (sg244986.txt 15567)
+   5.  -F - This is the fix option. If specified, content on the consumer replica is (sg244986.txt 15569)
+
+8. [one_extra_char_indel] "thee"
+   Time: 190.52 ms
+   Here are 5 suggestions
+   1.          the_exception = cm.exception (python-3.8.4-docs-text/library/unittest.txt 930)
+   2.    |    <body>Neither, fair saint, if either thee dislike.</body> (rfc7572.txt 346)
+   3.    |   <body>I take thee at thy word ...</body> (rfc7573.txt 610)
+   4.    |   <body>Neither, fair saint, if either thee dislike.</body> (rfc7573.txt 405)
+   5.    |  Neither, fair saint, if either thee dislike. (rfc7572.txt 316)
+
+9. [two_corrections_should_fail] "nof be"
+   Time: 1216.44 ms
+   Here are 5 suggestions
+   1.  An attribute type that is a supertype of another attribute type may not be (sg244986.txt 12206)
+   2.  An object class that is a superclass of another may not be deleted. (sg244986.txt 12210)
+   3.  This user ID must not be the one you created in Creating the DB2 (sg244986.txt 5143)
+   4.  You can designate that part of a replicated subtree not be replicated by (sg244986.txt 14181)
+   5. 
+   Browsers and other tools may or may not be installed. Cluster DNS (Tasks.txt 3635)
+
+10. [transposed_letters_should_fail] "teh question"
+   Time: 3.97 ms
+   No suggestions found
+
+11. [match_mid_sentence] "that is"
+   Time: 921.50 ms
+   Here are 5 suggestions
+   1.  An attribute type that is a MAY or a MUST attribute type of an object class (sg244986.txt 12208)
+   2.  An attribute type that is a supertype of another attribute type may not be (sg244986.txt 12206)
+   3.  An object class that is a superclass of another may not be deleted. (sg244986.txt 12210)
+   4.  If there is a set of explicit access control attributes at the object, then that is (sg244986.txt 16659)
+   5.  Timestamp 1 __--__: The local time the entry is logged, that is, the time the (sg244986.txt 23337)
+
+12. [word_not_in_corpus] "zzqxflumbo"
+   Time: 0.16 ms
+   No suggestions found
+
+13. [query_with_punctuation] "to, be!"
+   Time: 1087.13 ms
+   Here are 5 suggestions
+   1.  All directories to be used for the DB2 database must be completely empty. (sg244986.txt 21184)
+   2.  Authentication: Ensures that the user is who he/she claims to be. It is (sg244986.txt 17313)
+   3.  Context.SECURITY_PRINCIPAL - This constant defines the DN to be used (sg244986.txt 25835)
+   4.  Context.SECURITY_PRINCIPAL - This constant defines the DN to be used (sg244986.txt 25627)
+   5.  Extended operation option that identifies the extended operation to be (sg244986.txt 10308)
+
+14. [mixed_case] "To Be"
+   Time: 1102.34 ms
+   Here are 5 suggestions
+   1.  All directories to be used for the DB2 database must be completely empty. (sg244986.txt 21184)
+   2.  Authentication: Ensures that the user is who he/she claims to be. It is (sg244986.txt 17313)
+   3.  Context.SECURITY_PRINCIPAL - This constant defines the DN to be used (sg244986.txt 25835)
+   4.  Context.SECURITY_PRINCIPAL - This constant defines the DN to be used (sg244986.txt 25627)
+   5.  Extended operation option that identifies the extended operation to be (sg244986.txt 10308)
+
+15. [query_with_digits] "abc123"
+   Time: 0.39 ms
+   Here are 5 suggestions
+   1.            _abc123._def.xn--tu-mnchen-t9a.example. (rfc7585.txt 1244)
+   2.       "fooservice:bar.dccp" "" _abc123._def.xn--tu-mnchen-t9a.example. (rfc7585.txt 1202)
+   3.      abc123 (rfc8495.txt 201)
+   4.    "abc123": (rfc8495.txt 197)
+   5.    C:        abc123 (rfc8495.txt 644)
+
+16. [extra_whitespace_between_words] "to     be"
+   Time: 1043.70 ms
+   Here are 5 suggestions
+   1.  All directories to be used for the DB2 database must be completely empty. (sg244986.txt 21184)
+   2.  Authentication: Ensures that the user is who he/she claims to be. It is (sg244986.txt 17313)
+   3.  Context.SECURITY_PRINCIPAL - This constant defines the DN to be used (sg244986.txt 25835)
+   4.  Context.SECURITY_PRINCIPAL - This constant defines the DN to be used (sg244986.txt 25627)
+   5.  Extended operation option that identifies the extended operation to be (sg244986.txt 10308)
+
+17. [non_ascii_unicode] "café naïve"
+   Time: 53.59 ms
+   No suggestions found
+
+18. [common_prefix_many_matches] "the"
+   Time: 5891.12 ms
+   Here are 5 suggestions
+   1.  (deny)ed (w)rite access over the (normal) attributes. (sg244986.txt 15976)
+   2.  (grant)ed (r)ead, (s)earch and (c)ompare access over the (normal) attributes. (sg244986.txt 15975)
+   3.  -?: Displays the help screen. (sg244986.txt 24539)
+   4.  -C countnumber - Counts the number of entries to fix. If more than the (sg244986.txt 15567)
+   5.  -F - This is the fix option. If specified, content on the consumer replica is (sg244986.txt 15569)
+
+19. [very_long_query] "the quick brown fox jumps over the lazy dog and then runs away"
+   Time: 281.23 ms
+   No suggestions found
+
+20. [reset_char_in_query] "to be # not to be"
+   Time: 13180.19 ms
+   No suggestions found
+
+Summary: 20 cases, avg 2996.67ms, min 0.01ms, max 14201.93ms
