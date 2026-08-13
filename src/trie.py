@@ -9,7 +9,7 @@ class TrieNode:
         self.children = {}
         self.is_end = False
 
-        # Every place the word ending at this node was found
+        # List of all the locations where the sentence occurs
         self.locations = []
 
 

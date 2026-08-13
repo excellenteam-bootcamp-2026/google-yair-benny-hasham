@@ -2,7 +2,7 @@ from src.scorer import DELETION, INSERTION, NO_EDIT, SUBSTITUTION
 
 
 def _walk(node, word, start, end):
-    """Walk word[start:end] exactly. Returns the node reached, or None."""
+    """Exact walk over word[start:end]. Returns the node or None."""
     for index in range(start, end):
         node = node.children.get(word[index])
 
@@ -13,7 +13,7 @@ def _walk(node, word, start, end):
 
 
 def _prefix_nodes(root, word):
-    """Return the chain of nodes along the word, up to where it breaks off."""
+    """Returns the chain of nodes along the word, up to the point where it breaks off."""
     nodes = [root]
     node = root
 
@@ -30,10 +30,10 @@ def _prefix_nodes(root, word):
 
 def find_word_matches(root, word, allow_edit):
     """
-    Look a word up in the trie, allowing at most one correction.
+    Searches for a word in the tree with at most one correction.
 
     Returns a list of (node, edit_kind, edit_index), where edit_index is the
-    position of the correction inside the typed word.
+    position of the correction within the typed word.
     """
     matches = []
     length = len(word)
@@ -49,7 +49,7 @@ def find_word_matches(root, word, allow_edit):
         node = prefixes[index]
 
         if index < length:
-            # Replace the character at index with any other character
+            # Substituting the character at position index with any other character
             for char, child in node.children.items():
                 if char == word[index]:
                     continue
@@ -59,13 +59,13 @@ def find_word_matches(root, word, allow_edit):
                 if found is not None:
                     matches.append((found, SUBSTITUTION, index))
 
-            # The character at index is redundant, so skip over it
+            # The character at position index is extra - skip over it
             found = _walk(node, word, index + 1, length)
 
             if found is not None:
                 matches.append((found, INSERTION, index))
 
-        # A character is missing before index, so take one from the trie
+        # A character is missing before position index - fill it in from the tree
         for child in node.children.values():
             found = _walk(child, word, index, length)
 
@@ -77,11 +77,11 @@ def find_word_matches(root, word, allow_edit):
 
 def collect_locations(node, is_prefix):
     """
-    Collect the locations of a node.
+    Collects the locations of a node.
 
-    Any word but the last one in the query has to match a whole word, so only
-    the locations of the node itself are taken. The last word of the query is
-    a prefix of a word, so the whole subtree is collected as well.
+    A word that isn't the last one in the query requires a match to a whole
+    word, so only the locations of the node itself are taken. The last word
+    is a prefix of a word, so all its descendants are collected too.
     """
     if not is_prefix:
         return node.locations if node.is_end else []

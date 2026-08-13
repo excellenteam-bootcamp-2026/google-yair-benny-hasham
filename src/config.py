@@ -1,22 +1,29 @@
 from pathlib import Path
 
-# How many completions are returned to the user
+# Number of completions returned to the user
 MAX_COMPLETIONS = 5
 
-# Typing this character clears the accumulated text and returns to the initial state
+# The character that resets the accumulated text back to the initial state
 RESET_CHAR = "#"
 
-# Corpus root: a directory tree holding the text files
+# Corpus directory - a directory tree containing text files
 DATA_DIR = Path(__file__).resolve().parent.parent / "data" / "Archive"
 
-# Every matching character is worth 2 points
+# Each matched character is worth 2 points
 POINTS_PER_MATCHED_CHAR = 2
 
-# Penalty for a substituted character, by its position in the query (0-based)
+# There is a contradiction in the spec: per the Hebrew examples, the substituted
+# character is not counted in the base score ("lihiot o lo" -> 2x10-1=19 for an
+# 11-character query), while per the English appendix it is counted
+# ("2o be" -> Base=10 for a 5-character query). For insertion and deletion both
+# sources agree the character is not counted. This flag allows flipping the behavior.
+COUNT_SUBSTITUTED_CHAR = False
+
+# Penalty for substituting a character, by the character's position in the query (0-based)
 SUBSTITUTION_PENALTIES = (5, 4, 3, 2)
 SUBSTITUTION_PENALTY_REST = 1
 
-# Penalty for an added or a missing character, by its position in the query (0-based)
+# Penalty for inserting or deleting a character, by the character's position in the query (0-based)
 INDEL_PENALTIES = (10, 8, 6, 4)
 INDEL_PENALTY_REST = 2
 

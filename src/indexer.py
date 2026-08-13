@@ -6,11 +6,10 @@ from src.trie import Trie
 
 def build_index(data_dir=None):
     """
-    The offline phase: read every text file and build the data structures.
+    The offline stage: reads all text files and builds the data structures.
 
-    Each normalized word is inserted into the trie, and its Location points at
-    the id of the sentence it came from and at the position of the word inside
-    that sentence.
+    Every normalized word is inserted into the Trie, with its Location
+    pointing at the sentence id and at the word's position within that sentence.
 
     Returns (trie, store).
     """

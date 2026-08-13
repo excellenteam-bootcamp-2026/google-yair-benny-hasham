@@ -12,5 +12,5 @@ class AutoCompleteData:
         return f"{self.completed_sentence} ({self.source_text} {self.offset})"
 
     def sort_key(self):
-        # Highest score first, and ties are broken alphabetically
+        # Higher score first, and alphabetical order in case of a tie
         return (-self.score, self.completed_sentence)
