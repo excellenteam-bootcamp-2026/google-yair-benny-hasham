@@ -27,9 +27,9 @@ def top_score(engine, query):
     return results[0].score if results else None
 
 
-# The examples from the appendix. The two substitution cases score 2 points
-# lower here, following the main specification rather than the appendix table.
-# See the comment in scorer.
+# The examples from the appendix. The substitution scores here are per
+# COUNT_SUBSTITUTED_CHAR = False, and are 2 points lower than in the appendix
+# itself. See the note in config.
 @pytest.mark.parametrize(
     "query, expected",
     [
@@ -101,7 +101,7 @@ def test_exact_matches_outrank_corrected_ones():
 
 
 def test_swapped_letters_need_two_corrections_and_are_not_a_match():
-    # qeustion against question is a swap, which takes two corrections
+    # qeustion vs question is a swap of order, i.e. two corrections
     engine = build_engine(["the qeustion stands."])
 
     assert engine.get_best_k_completions("the question") == []

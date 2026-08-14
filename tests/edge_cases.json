@@ -1,0 +1,22 @@
+[
+  {"label": "empty_query", "query": ""},
+  {"label": "whitespace_only", "query": "   "},
+  {"label": "single_char", "query": "a"},
+  {"label": "single_exact_word", "query": "the"},
+  {"label": "multiword_exact_phrase", "query": "to be"},
+  {"label": "one_substitution_typo", "query": "to pe"},
+  {"label": "one_missing_char_indel", "query": "th"},
+  {"label": "one_extra_char_indel", "query": "thee"},
+  {"label": "two_corrections_should_fail", "query": "nof be"},
+  {"label": "transposed_letters_should_fail", "query": "teh question"},
+  {"label": "match_mid_sentence", "query": "that is"},
+  {"label": "word_not_in_corpus", "query": "zzqxflumbo"},
+  {"label": "query_with_punctuation", "query": "to, be!"},
+  {"label": "mixed_case", "query": "To Be"},
+  {"label": "query_with_digits", "query": "abc123"},
+  {"label": "extra_whitespace_between_words", "query": "to     be"},
+  {"label": "non_ascii_unicode", "query": "café naïve"},
+  {"label": "common_prefix_many_matches", "query": "the"},
+  {"label": "very_long_query", "query": "the quick brown fox jumps over the lazy dog and then runs away"},
+  {"label": "reset_char_in_query", "query": "to be # not to be"}
+]

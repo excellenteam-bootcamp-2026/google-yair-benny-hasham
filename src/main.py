@@ -19,19 +19,18 @@ def main():
         print(f"Corpus directory not found: {config.DATA_DIR}")
         return
 
-    # The offline phase
+    # The offline stage
     print("Loading the files and preparing the system...")
     trie, store = build_index()
     engine = AutoCompleteEngine(trie, store)
 
-    # The online phase
+    # The online stage
     print(f"The system is ready. Enter your text ({len(store)} sentences loaded):")
     typed = ""
 
     while True:
         try:
-            # The accumulated text is shown as the prompt, so that the user
-            # carries on from where they stopped
+            # The accumulated text is shown as the prompt, so the user continues from where they stopped
             addition = input(typed)
         except (EOFError, KeyboardInterrupt):
             print()

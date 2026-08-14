@@ -1,9 +1,0 @@
-__pycache__/
-*.py[cod]
-.venv/
-venv/
-.idea/
-.vscode/
-
-# The corpus is not kept in git
-data/

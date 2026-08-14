@@ -1,10 +1,10 @@
 class SentenceStore:
     """
-    Holds the sentence data outside of the trie. The trie stores nothing but
-    an id, and everything the output needs lives here: the original text, the
-    path of the file and the line number inside it.
+    Holds the sentence data outside the tree. The Trie only stores an id, and
+    everything needed for output is kept here: the original text, the file
+    path, and the line number.
 
-    This is read only for the final results, never during the search itself.
+    This is accessed only for the final results, not during the search itself.
     """
 
     def __init__(self):
@@ -13,7 +13,7 @@ class SentenceStore:
         self._offsets = []
 
     def add(self, raw_line, source, offset):
-        """Store a sentence and return its id."""
+        """Adds a sentence and returns its id."""
         self._raw_lines.append(raw_line)
         self._sources.append(source)
         self._offsets.append(offset)
@@ -21,7 +21,7 @@ class SentenceStore:
         return len(self._raw_lines) - 1
 
     def get(self, sentence_id):
-        """Return (raw_line, source, offset) for an id."""
+        """Returns (raw_line, source, offset) for an id."""
         return (
             self._raw_lines[sentence_id],
             self._sources[sentence_id],

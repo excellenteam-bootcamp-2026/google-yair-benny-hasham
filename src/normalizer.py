@@ -1,22 +1,20 @@
 import re
 
-# Anything that is not a letter, a digit or whitespace counts as punctuation
-# and is dropped entirely
+# Anything that isn't a letter, digit, or whitespace is treated as punctuation and stripped entirely
 _PUNCTUATION = re.compile(r"[^a-z0-9\s]")
 _WHITESPACE = re.compile(r"\s+")
 
 
 def normalize(text):
     """
-    Normalize text for comparison: lowercase, no punctuation, and runs of
-    whitespace collapsed into a single space.
+    Normalizes text for comparison: lowercase, no punctuation, whitespace collapsed to a single space.
 
-    Matching ignores case and punctuation, and the number of spaces between
-    words does not matter, so "to be, that", "to be that" and "to be    that"
-    all normalize to the same string.
+    The comparison ignores case and punctuation, and the number of spaces between
+    words doesn't matter, so "to be that", "to be, that" and "to be    that" all
+    normalize to the same string.
     """
-    # Punctuation is removed before whitespace is collapsed, otherwise
-    # punctuation surrounded by spaces leaves a double space behind
+    # Punctuation is removed first and only then whitespace is collapsed, otherwise
+    # punctuation surrounded by spaces would leave a double space behind
     text = _PUNCTUATION.sub("", text.lower())
     text = _WHITESPACE.sub(" ", text)
 
@@ -24,5 +22,5 @@ def normalize(text):
 
 
 def split_words(text):
-    """Split normalized text into its words."""
+    """Splits normalized text into a list of words."""
     return text.split()

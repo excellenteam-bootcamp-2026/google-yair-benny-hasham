@@ -3,14 +3,12 @@ from src import config
 
 def iter_sentences(data_dir=None):
     """
-    Walk the directory tree and yield every line of every text file as a
-    sentence.
+    Walks all text files in the directory tree and returns each line as a sentence.
 
-    Yields (source, offset, raw_line) where:
-      source   - the path of the file relative to the corpus root
-      offset   - the line number inside that file (0-based)
-      raw_line - the line exactly as it appears in the file, punctuation and
-                 capitalization included
+    Returns triples (path, offset, raw_line) where:
+      path     - the file's path relative to the corpus directory
+      offset   - the line number in the file (0-based)
+      raw_line - the line as it is in the original, including punctuation and case
     """
     if data_dir is None:
         data_dir = config.DATA_DIR
